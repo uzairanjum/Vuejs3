@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>1st</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+   <style>
+
+   </style>
+  </head>
+  <body>
+    <div id="for-calling-function" > {{ message }} </div>
+      <script>
+        const shwmsg = {data(){ 
+            return { message: '1st day (2-3-2021 /12:47pm)' }}}
+        
+        Vue.createApp(shwmsg).mount('#for-calling-function')
+
+      </script>
+    
+  
+  </body>
+</html>

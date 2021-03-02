@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>3</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+   <style>
+          .demo {
+           user-select: none;
+           overflow-x: auto;
+           }
+   </style>
+  </head>
+  <body>
+    <div id="counter" class="demo">
+       
+        <span v-bind:title="message">
+            Counter: {{ counter }}
+          </span>
+      </div>
+      
+      <script>
+     const Counter = {   data() {return {counter: 0 , message: new Date().toLocaleString() }
+                     } , 
+                            mounted() {setInterval(() => { this.counter++ }, 1000)}  
+                         }
+                         Vue.createApp(Counter).mount('#counter')                 
+      </script>
+       
+    
+  
+  </body>
+</html>

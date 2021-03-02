@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>5</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+   <style>
+          .demo {
+           user-select: none;
+           overflow-x: auto;
+           }
+   </style>
+  </head>
+  <body>
+    <div id="twb">
+        <p>{{ message }}</p>
+        <input v-model="message" />
+      </div>
+
+
+      <script>
+const TwoWayBinding = {data() { return {message: 'Hello Vue!' }}}
+
+Vue.createApp(TwoWayBinding).mount('#twb')              
+      </script>
+       
+    
+  
+  </body>
+</html>
