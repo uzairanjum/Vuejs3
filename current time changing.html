@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>5</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+   <style>
+          .demo {
+           user-select: none;
+           overflow-x: auto;
+           }
+   </style>
+  </head>
+  <body>
+    <div id="twb">
+        <p>{{ message }} {{age}} </p>
+        <input v-model="message" />
+        <div id="twb">
+          <button v-on:click=age++ >increase Age</button>
+          <button v-on:click=age-- >increase Age</button>
+
+        </div>
+        
+      </div>
+
+
+      <script>
+const TwoWayBinding = {data() { return {message: 'For Example!', age:"12"}}}
+
+Vue.createApp(TwoWayBinding).mount('#twb')              
+      </script>
+       
+    
+  
+  </body>
+</html>
