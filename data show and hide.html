@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>11</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+   
+  </head>
+  <body>
+
+    <div id="todo-list">
+    <div v-if='showbooks'>
+        <p> {{book}} , {{Name}} , {{Age}} </p></div>
+        <button @click=btnhide ref="btnToggle">Hide</button>
+      
+    
+    </div>
+      
+      <script>
+const app = Vue.createApp({data() {return { showbooks: true, book: "LAw an order" , Name: "Uzair", Age: "34"}},
+methods:{
+    btnhide(){
+        this.showbooks=!this.showbooks;
+        this.$refs.btnToggle.innerText = this.show?'Hide':'Show';
+
+    }
+  
+}})
+    
+    
+    
+
+app.mount('#todo-list')
+    
+
+      </script>
+       
+    
+  
+  </body>
+</html>
