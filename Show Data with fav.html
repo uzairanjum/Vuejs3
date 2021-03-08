@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>11</title>
+   
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .box {
+        padding: 30px 35px;
+        width: 100px;
+       
+        text-align: center;
+        background: rgb(86, 125, 156);
+        margin: 20px;
+        display: inline-block;
+ 
+
+      }
+      ul li:hover img{
+        transform:scale(1.5);
+      }
+      body{
+        background-color: #C2DEDA;
+        max-width: 1200px;
+        margin: 10px auto;
+      }
+      h5, ul{
+        margin: 0;
+        padding: 0;
+      }
+      li{
+        list-style-type: None;
+        background-color: #81A3A7;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      li.fav{
+        background-color: gray;
+      }
+  
+    </style>
+   
+  </head>
+  <body>
+    <div><h2 style="text-align: center;"> Welocme to Vue.js</h2></div>
+
+    <div id="todo-list">
+           <div v-if='showbooks'>     
+             <ul>
+               <li @dblclick="like(book)" style=" display: inline-block; margin:50px ;" v-for="book in books" :class= "{ fav:book.isFav}">
+                <img style="width: 100px; height: 150px; "  :src="book.img" :alt="book.title" >
+                  <h5 style="text-align: center;"> {{book.title}} <br>by {{book.Author}} </h5> 
+
+               </li>
+             </ul>
+             <template v-for="book in books">
+               <ul>
+                 <li style="display: inline-flex;" v-if="book.isFav == true">
+                      {{book.title}}
+                 </li>
+               </ul>
+             </template>
+                  
+           </div>
+        
+     
+     
+        <button style="width: 120px; height: 30px;" @click="btnhide">
+          <span v-if ="showbooks">Hide</span>
+          <span v-else>Show</span>
+          <h6 v-show="showbooks">Click to Hide</h6>
+          <h6 v-show="!showbooks">Click to Show</h6>
+     </button>
+      
+
+     
+        
+              
+        <br>
+        <br>
+        <br>
+
+   
+
+        <!-----Mouse Event----->
+        <div class="box" @mouseover="func">Mouse Over</div>
+        <div class="box" @mouseleave="func">Mouse Leave</div>
+        <div class="box" @dblclick="func">Double Click</div>
+        <div class="box" @mousemove="mousmove">X={{x}} Y={{y}}</div>
+
+
+      
+    
+    </div>
+      
+      <script>
+const app = Vue.createApp({data() {
+  return {showbooks: true,
+          books: [{title: "Law Of Evidence", Author: "Usama", img: '1.jpg', isFav: false},
+                  {title: "Law of Pleading", Author: "Uzair",  img: '2.jpg', isFav: true},
+                  {title: "The Contract fee", Author: "Anjum",  img: '3.jpg', isFav: false},
+                  {title: "An Easy Access", Author: "Adil", img: '1.jpg', isFav: true},
+                  {title: "MicroProcessor", Author: "Hazma",  img: '2.jpg', isFav: false},                  
+                                  ], x: "0", y: "0" }},
+methods:{
+    btnhide(){
+        this.showbooks=!this.showbooks;
+        },
+    func(e){
+      console.log(e, e.type)
+    },
+    mousmove(e){
+      this.x= e.offsetX
+      this.y= e.offsetY
+    },
+    like(book){
+      book.isFav=!book.isFav
+
+    }
+
+       
+}})
+    
+    
+    
+
+app.mount('#todo-list')
+    
+
+      </script>
+       
+    
+  
+  </body>
+</html>
